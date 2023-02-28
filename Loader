@@ -1,0 +1,14 @@
+local GamesList = {
+    [11636413564] = "Meme Mergers",
+}
+
+local currentGameName = game.Name
+for gameId, gameName in pairs(GamesList) do
+    if gameId == game.PlaceId then
+        print(string.format("Loading %s...", gameName))
+        local loadstringUrl = string.format("https://raw.githubusercontent.com/justarandompersonongithub/Roblox/main/Games/%d", gameId)
+        loadstring(game:HttpGet(loadstringUrl))()
+        print(string.format("%s loaded successfully!", gameName))
+        break
+    end
+end
