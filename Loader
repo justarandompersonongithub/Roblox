@@ -1,5 +1,6 @@
 local GamesList = {
     [11636413564] = "Meme Mergers",
+    [10514822281] = "Case Opening Simulator 2",
 }
 
 local currentGameName = game.Name
