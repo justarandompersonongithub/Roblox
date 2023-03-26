@@ -1,0 +1,41 @@
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local PlayerGui = LocalPlayer:FindFirstChildOfClass("PlayerGui")
+
+for i = 1, 5 do
+    for _, child in pairs(PlayerGui:GetChildren()) do
+        if child.Name == "Chat" or child.Name == "BubbleChat" then
+            child:Destroy()
+        end
+    end
+    task.wait(0.2)
+end
+
+for _, child in pairs(PlayerGui:GetChildren()) do
+    while _G.toggle do
+        task.wait(0.5)
+
+        spawn(function()
+            if not child.CenterFrame.Unboxed.Visible and not child.UnboxGui.Visible then
+                task.wait(0.5)
+                mousemoveabs(70, 180)
+                task.wait(0.1)
+                mousemoveabs(65, 175)
+                task.wait(0.1)
+                mouse1click()
+            end
+        end)
+
+        if child.CenterFrame.Unboxed.Visible then
+            task.wait(0.5)
+            local position = child.CenterFrame.Unboxed.ButtonsFrame.Sell.AbsolutePosition
+            local x = position.X + 50
+            local y = position.Y + 50
+            mousemoveabs(x, y)
+            task.wait(0.1)
+            mousemoveabs(x - 5, y - 5)
+            task.wait(0.1)
+            mouse1click()
+        end
+    end
+end
